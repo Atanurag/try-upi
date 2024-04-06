@@ -8,7 +8,6 @@ const { Header, Content, Footer } = Layout;
 import { SearchOutlined } from '@ant-design/icons';
 import { Divider, Flex, Tag } from 'antd';
 
-import { Col, Row } from 'antd';
 
 const d = ()=>{
   return(
