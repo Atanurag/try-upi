@@ -215,8 +215,7 @@ if (status === 'SUCCESS') {
 
   return (
     <>
-BHARATPE.90070065432@fbpe&pn=Verified Merchant
-0-
+
 {/* upi://pay?pa=nadeem@npci&pn=nadeem%20chinna&mc=0000&tid=cxnkjcnkjdfdvjndkjfvn&tr=4894
 398cndhcd23&tn=Pay%20to%20mystar%20store&am=10&mam=null&cu=INR&url=https://mystar.co
 m/orderid=9298yw89e8973e87389e78923ue892&mode=00&sign=aagshd4542bdhhvdshsbvqfqttsvs
