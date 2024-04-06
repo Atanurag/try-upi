@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../a.css';
 import { Radio, Tabs } from 'antd';
 import { Layout, Input, Button, Row, Col,Switch,Card  } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+
 
 const { Header, Content, Footer } = Layout;
 import { SearchOutlined } from '@ant-design/icons';
