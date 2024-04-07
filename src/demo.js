@@ -228,6 +228,8 @@ ab
 < a href='upi://pay?pa=paytmqrhpiv380v5z@paytm&pn=Paytm'>pay 01</a>
 < a href='upi://pay?pa=BHARATPE.90070065432@fbpe&pn=YourBusinessName&am=1.00&cu=INR&mode=01&tid=aRandomTxn12345&tr=aRef12345&tn=PaymentForGoods'>pay 00</a>
 
+</br>
+<a href="upi://pay?pa=BHARATPE.90070065432@fbpe&cu=INR">pay dharmesh</a>
 {/* <a href={`upi://pay?pa=7875853859@paytm&pn=anurag&tn=TestUPI&am=1&cu=INR&url=https://dev-fuelsense.iotronsys.com&orgid=000000&mode=00&sign=ad268a425a3fddecda3a23681d2259f075d331d56fcd3b7fc1057113ad8623cb
 `}>akaak</a> */}
 {/* <a href={`upi://pay?pa=7875853859@paytm&pn=anurag&tn=Test%20UPI&am=1&cu=INR&sign=aagshd4542bdhhvdshsbvqfqttsvs
