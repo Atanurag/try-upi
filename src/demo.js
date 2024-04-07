@@ -220,7 +220,7 @@ if (status === 'SUCCESS') {
 398cndhcd23&tn=Pay%20to%20mystar%20store&am=10&mam=null&cu=INR&url=https://mystar.co
 m/orderid=9298yw89e8973e87389e78923ue892&mode=00&sign=aagshd4542bdhhvdshsbvqfqttsvs
 vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
-  <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&am=1&mam=null&cu=INR&url=https://dev-fuelsense.iotronsys.com&mode=01&orgid=000000&tn=Pay to BharatPe Merchant&sign=638f5899660bb086e57c0d22189a96e15c12f64806563e0b44a5df727a2da3e9">payment</a>
+  <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&am=1&mam=null&cu=INR&url=https://dev-fuelsense.iotronsys.com&mode=pain&orgid=000000&tn=Pay to BharatPe Merchant&sign=638f5899660bb086e57c0d22189a96e15c12f64806563e0b44a5df727a2da3e9">payment</a>
 
 
 {/* <a href={`upi://pay?pa=7875853859@paytm&pn=anurag&tn=TestUPI&am=1&cu=INR&url=https://dev-fuelsense.iotronsys.com&orgid=000000&mode=00&sign=ad268a425a3fddecda3a23681d2259f075d331d56fcd3b7fc1057113ad8623cb
