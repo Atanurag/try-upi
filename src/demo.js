@@ -226,6 +226,11 @@ ab
 <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&am=1&cu=INR&tn=Pay to BharatPe Merchant">Pay INR 1</a>
 
 < a href='upi://pay?pa=paytmqrhpiv380v5z@paytm&pn=Paytm&am=1&cu=INR&mode=01'>pay 01</a>
+< a href='upi://pay?pa=paytmqrhpiv380v5z@paytm&pn=Paytm&am=1&cu=INR&mode=00'>pay 00</a>
+< a href='upi://pay?pa=paytmqrhpiv380v5z@paytm&pn=Paytm&am=1&cu=INR&mode=04'>pay 04</a>
+< a href='upi://pay?pa=paytmqrhpiv380v5z@paytm&pn=Paytm&am=1&cu=INR&mode=05'>pay 05</a>
+< a href='upi://pay?pa=paytmqrhpiv380v5z@paytm&pn=Paytm&am=1&cu=INR&mode=16'>pay 16</a>
+< a href='upi://pay?pa=paytmqrhpiv380v5z@paytm&pn=Paytm&am=1&cu=INR&mode=17'>pay 17</a>
 {/* <a href={`upi://pay?pa=7875853859@paytm&pn=anurag&tn=TestUPI&am=1&cu=INR&url=https://dev-fuelsense.iotronsys.com&orgid=000000&mode=00&sign=ad268a425a3fddecda3a23681d2259f075d331d56fcd3b7fc1057113ad8623cb
 `}>akaak</a> */}
 {/* <a href={`upi://pay?pa=7875853859@paytm&pn=anurag&tn=Test%20UPI&am=1&cu=INR&sign=aagshd4542bdhhvdshsbvqfqttsvs
