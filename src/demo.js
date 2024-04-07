@@ -225,6 +225,7 @@ vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
 ab
 <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&am=1&cu=INR&tn=Pay to BharatPe Merchant">Pay INR 1</a>
 
+< a href='upi://pay?pa=paytmqrhpiv380v5z@paytm&pn=Paytm&am=1&cu=INR'>pay</a>
 {/* <a href={`upi://pay?pa=7875853859@paytm&pn=anurag&tn=TestUPI&am=1&cu=INR&url=https://dev-fuelsense.iotronsys.com&orgid=000000&mode=00&sign=ad268a425a3fddecda3a23681d2259f075d331d56fcd3b7fc1057113ad8623cb
 `}>akaak</a> */}
 {/* <a href={`upi://pay?pa=7875853859@paytm&pn=anurag&tn=Test%20UPI&am=1&cu=INR&sign=aagshd4542bdhhvdshsbvqfqttsvs
