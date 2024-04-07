@@ -220,14 +220,15 @@ if (status === 'SUCCESS') {
 398cndhcd23&tn=Pay%20to%20mystar%20store&am=10&mam=null&cu=INR&url=https://mystar.co
 m/orderid=9298yw89e8973e87389e78923ue892&mode=00&sign=aagshd4542bdhhvdshsbvqfqttsvs
 vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
-  <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&am=1&cu=INR&mode=01&orgid=000000&tn=Pay to BharatPe Merchant&url=https://www.iotronsys.com">payment</a>
+upi://pay?pa=nadeem@npci&pn=nadeem%20chinna&mc=0000&tid=cxnkjcnkjdfdvjndkjfvn&tr=4894398cndhcd23&tn=Pay%20to%20mystar%20store&am=10&mam=null&cu=INR&url=https://mystar.com/orderid=9298yw89e8973e87389e78923ue892
+  <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&mc=0000&tr=hello7890&tn=Pay to BharatPe Merchant&am=1&cu=INR">payment</a>
 
 ab
 <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&am=1&cu=INR&tn=Pay to BharatPe Merchant">Pay INR 1</a>
 
 < a href='upi://pay?pa=BHARATPE.90070065432@fbpe&cu=INR'>pay 01</a>
 
-< a href='upi://pay?pa=BHARATPE.90070065432@fbpe&pn=YourBusinessName&am=1.00&cu=INR&mode=01&tid=aRandomTxn12345&tr=aRef12345&tn=PaymentForGoods'>pay 00</a>
+< a href='upi://pay?pa=BHARATPE.9007065432@fbpe&pn=YourBusinessName&am=1.00&cu=INR&mode=01&tid=aRandomTxn12345&tr=aRef12345&tn=PaymentForGoods'>pay 00</a>
 
 
 
@@ -239,7 +240,7 @@ vsbsj&url=${encodeURIComponent("https://dev-fuelsense.iotronsys.com/dashboard/or
 
  <Header style={{display:'flex',flexDirection:'column',justifyContent:'center',backgroundColor:'white',borderBottom: '1px solid #ddd',height:'100px',padding:'12px', position: 'sticky',
           top: 0,
-          zIndex: 1,}}>
+          zIndex: 1,}}>0
       <Row justify="space-between" align="middle" gutter={[16,16]} >
         <Col xs={18} sm={8} md={8} lg={12} >
           <div style={{display:'flex'}}>
