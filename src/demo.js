@@ -225,14 +225,14 @@ vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
 < a href='upi://pay?pa=7875853859@paytm&pn=Anurag&cu=INR&am=1.00&tn=Payment%20for%20services'>anurag</a>
 
   
-  <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&mc=0000&tr=hello78340&tn=Pay to BharatPe Merchant&am=1&cu=INR">payment</a>
+  {/* <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&mc=0000&tr=hello78340&tn=Pay to BharatPe Merchant&am=1&cu=INR">payment</a>
 
 ab
 <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&am=1&cu=INR&tn=Pay to BharatPe Merchant">Pay INR 1</a>
 
 < a href='upi://pay?pa=BHARATPE.90070065432@fbpe&cu=INR'>pay 1</a>
 
-< a href='upi://pay?pa=BHARATPE.9007065432@fbpe&pn=YourBusinessName&am=1.00&cu=INR&mode=01&tid=aRandomTxn12345&tr=aRef12345&tn=PaymentForGoods'>pay 00</a>
+< a href='upi://pay?pa=BHARATPE.9007065432@fbpe&pn=YourBusinessName&am=1.00&cu=INR&mode=01&tid=aRandomTxn12345&tr=aRef12345&tn=PaymentForGoods'>pay 00</a> */}
 
 
 
