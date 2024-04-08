@@ -230,7 +230,7 @@ vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
 ab
 <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&am=1&cu=INR&tn=Pay to BharatPe Merchant">Pay INR 1</a>
 
-< a href='upi://pay?pa=BHARATPE.90070065432@fbpe&cu=INR'>pay 01</a>
+< a href='upi://pay?pa=BHARATPE.90070065432@fbpe&cu=INR'>pay 1</a>
 
 < a href='upi://pay?pa=BHARATPE.9007065432@fbpe&pn=YourBusinessName&am=1.00&cu=INR&mode=01&tid=aRandomTxn12345&tr=aRef12345&tn=PaymentForGoods'>pay 00</a>
 
