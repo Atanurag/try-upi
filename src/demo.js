@@ -223,8 +223,7 @@ vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
 
 
 < a href='upi://pay?pa=7875853859@paytm&pn=Anurag&cu=INR&am=1.00&tn=Payment%20for%20services'>anurag</a>
-
-  
+<a href="upi://pay?pa=shivaytiwari951@oksbi&pn=YourName&tr=90louda345ms&tn=Paymentservices&am=1&cu=INR">Pay with UPI</a>
   {/* <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&mc=0000&tr=hello78340&tn=Pay to BharatPe Merchant&am=1&cu=INR">payment</a>
 
 ab
