@@ -214,8 +214,8 @@ if (status === 'SUCCESS') {
 }
 
 React.useEffect(()=>{
-  if(localStorage.getItem('po')){
-    alert('popopo');
+  if(localStorage.getItem('po') === 12){
+    alert('ppopo');
     localStorage.removeItem('po')
   }
 },[])
