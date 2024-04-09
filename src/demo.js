@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './a.css';
 import { Radio, Tabs } from 'antd';
 import { Layout, Input, Button, Row, Col,Switch,Card  } from 'antd';
-import { useLocation } from 'react-router-dom';
+import { Route, useLocation,Routes } from 'react-router-dom';
 
 
 const { Header, Content, Footer } = Layout;
@@ -214,24 +214,24 @@ if (status === 'SUCCESS') {
  // alert('Transaction failed');
 }
 
-// React.useEffect(()=>{
-//   if(localStorage.getItem('po') == 12){
-//     alert('ppopo');
-//     localStorage.removeItem('po')
-//   }
-// },[])
-
-React.useEffect(() => {
-  const searchParams = new URLSearchParams(location.search);
-  const status = searchParams.get('status');
-
-  if (status === 'success') {
-    alert('Your payment was successful!');
-  } else {
-    // Handle other statuses or lack thereof
-    alert('Welcome back! Check your payment status.');
+React.useEffect(()=>{
+  if(localStorage.getItem('po') == 12){
+    alert('ppopo');
+    localStorage.removeItem('po')
   }
-}, [location]);
+},[location])
+
+// React.useEffect(() => {
+//   const searchParams = new URLSearchParams(location.search);
+//   const status = searchParams?.get('status');
+
+//   if (status === 'success') {
+//     alert('Your payment was successful!');
+//   } else {
+//     // Handle other statuses or lack thereof
+//     alert('Welcome back! Check your payment status.');
+//   }
+// }, [location]);
 
   return (
     <>
@@ -245,7 +245,7 @@ vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
 < a href='upi://pay?pa=7875853859@paytm&pn=Anurag&cu=INR&am=1.00&tn=Payment%20for%20services'>anurag</a>
 <button onClick={()=>{
 
-//  localStorage.setItem('po',12)
+ localStorage.setItem('po',12)
 
 
 }
@@ -267,9 +267,8 @@ ab
 `}>akaak</a> */}
 {/* <a href={`upi://pay?pa=7875853859@paytm&pn=anurag&tn=Test%20UPI&am=1&cu=INR&sign=aagshd4542bdhhvdshsbvqfqttsvs
 vsbsj&url=${encodeURIComponent("https://dev-fuelsense.iotronsys.com/dashboard/orderid=9298yw89e8973e87389e78923ue892")}&orgid=00000`}>akaak</a> */}
-
-
- <Header style={{display:'flex',flexDirection:'column',justifyContent:'center',backgroundColor:'white',borderBottom: '1px solid #ddd',height:'100px',padding:'12px', position: 'sticky',
+<Routes>
+<Route path='/' element={<><Header style={{display:'flex',flexDirection:'column',justifyContent:'center',backgroundColor:'white',borderBottom: '1px solid #ddd',height:'100px',padding:'12px', position: 'sticky',
           top: 0,
           zIndex: 1,}}>0
       <Row justify="space-between" align="middle" gutter={[16,16]} >
@@ -342,12 +341,13 @@ vsbsj&url=${encodeURIComponent("https://dev-fuelsense.iotronsys.com/dashboard/or
         })}
       />
       </div>
-      </div>
+      </div></>}/>
+ 
 
 
 
 
-
+      </Routes>
 
 
 
