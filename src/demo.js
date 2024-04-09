@@ -212,10 +212,14 @@ if (status === 'SUCCESS') {
   // Transaction failed, handle accordingly
  // alert('Transaction failed');
 }
-if(localStorage.getItem('po')){
-  alert('popopo');
-  localStorage.removeItem('po')
-}
+
+React.useEffect(()=>{
+  if(localStorage.getItem('po')){
+    alert('popopo');
+    localStorage.removeItem('po')
+  }
+},[])
+
   return (
     <>
 
