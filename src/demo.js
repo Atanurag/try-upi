@@ -221,7 +221,7 @@ if (status === 'SUCCESS') {
 //   }
 // },[])
 
-useEffect(() => {
+React.useEffect(() => {
   const searchParams = new URLSearchParams(location.search);
   const status = searchParams.get('status');
 
