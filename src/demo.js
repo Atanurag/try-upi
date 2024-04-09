@@ -197,7 +197,6 @@ function getQueryParameterByName(name, url) {
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-const location = useLocation();
 // Parse response parameters from URL
 const txnId = getQueryParameterByName('txnId');
 const responseCode = getQueryParameterByName('responseCode');
@@ -214,12 +213,12 @@ if (status === 'SUCCESS') {
  // alert('Transaction failed');
 }
 
-React.useEffect(()=>{
-  if(localStorage.getItem('po') == 12){
-    alert('ppopo');
-    localStorage.removeItem('po')
-  }
-},[location])
+// React.useEffect(()=>{
+//   if(localStorage.getItem('po') == 12){
+//     alert('ppopo');
+//     localStorage.removeItem('po')
+//   }
+// },[location])
 
 // React.useEffect(() => {
 //   const searchParams = new URLSearchParams(location.search);
@@ -245,13 +244,13 @@ vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
 < a href='upi://pay?pa=7875853859@paytm&pn=Anurag&cu=INR&am=1.00&tn=Payment%20for%20services'>anurag</a>
 <button onClick={()=>{
 
- localStorage.setItem('po',12)
+//  localStorage.setItem('po',12)
 
 
 }
 
 
-}><a href="upi://pay?pa=shivaytiwari951@oksbi&pn=YourName&tr=780ttryr345ms&tn=Paymentservices&am=1&cu=INR&url=https://try-upi-25a5.vercel.app?status=success">Pay with UPI 1 inr</a></button>
+}><a href="upi://pay?pa=shivaytiwari951@oksbi&pn=YourName&tr=780ttryr345ms&tn=Paymentservices&am=1&cu=INR&refUrl=https://vercel.com/anuragt9510-gmailcom/try-upi-25a5">Pay with UPI 1 inr</a></button>
   {/* <a href="upi://pay?pa=BHARATPE.90070065432@fbpe&pn=Verified Merchant&mc=0000&tr=hello78340&tn=Pay to BharatPe Merchant&am=1&cu=INR">payment</a>
 
 ab
