@@ -233,7 +233,7 @@ if (status === 'SUCCESS') {
 // }, [location]);
 function handelUserComeback(){
   if(document.visibilityState === 'visible' && sessionStorage.getItem('paymentInitiated')){
-    alert('poppop')
+    alert('poppo')
     sessionStorage.removeItem('paymentInitiated');
   }
 }
