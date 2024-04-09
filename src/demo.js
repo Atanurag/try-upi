@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './a.css';
 import { Radio, Tabs } from 'antd';
 import { Layout, Input, Button, Row, Col,Switch,Card  } from 'antd';
+import { useLocation } from 'react-router-dom';
 
 
 const { Header, Content, Footer } = Layout;
@@ -196,7 +197,7 @@ function getQueryParameterByName(name, url) {
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-
+const location = useLocation();
 // Parse response parameters from URL
 const txnId = getQueryParameterByName('txnId');
 const responseCode = getQueryParameterByName('responseCode');
@@ -220,6 +221,17 @@ if (status === 'SUCCESS') {
 //   }
 // },[])
 
+useEffect(() => {
+  const searchParams = new URLSearchParams(location.search);
+  const status = searchParams.get('status');
+
+  if (status === 'success') {
+    alert('Your payment was successful!');
+  } else {
+    // Handle other statuses or lack thereof
+    alert('Welcome back! Check your payment status.');
+  }
+}, [location]);
 
   return (
     <>
