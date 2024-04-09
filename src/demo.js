@@ -6,7 +6,7 @@ import { Route, useLocation,Routes } from 'react-router-dom';
 
 
 const { Header, Content, Footer } = Layout;
-import { SearchOutlined } from '@ant-design/icons';
+import { ConsoleSqlOutlined, SearchOutlined } from '@ant-design/icons';
 import { Divider, Flex, Tag } from 'antd';
 
 
@@ -231,6 +231,16 @@ if (status === 'SUCCESS') {
 //     alert('Welcome back! Check your payment status.');
 //   }
 // }, [location]);
+function handelUserComeback(){
+  if(document.visibilityState === 'visible' && sessionStorage.getItem('paymentInitiated')){
+    alert('poppop')
+    sessionStorage.removeItem('paymentInitiated');
+  }
+}
+React.useEffect(()=>{
+  window.addEventListener('visibilitychange',handelUserComeback)
+ return ()=> window.removeEventListener('visibilitychange')
+},[])
 
   return (
     <>
@@ -245,7 +255,8 @@ vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
 <button onClick={()=>{
 
 //  localStorage.setItem('po',12)
-
+sessionStorage.setItem('paymentInitiated',true)
+console.log('added')
 
 }
 
