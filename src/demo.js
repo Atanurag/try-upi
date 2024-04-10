@@ -4,6 +4,7 @@ import { Radio, Tabs } from 'antd';
 import { Layout, Input, Button, Row, Col,Switch,Card  } from 'antd';
 import { Route, useLocation,Routes } from 'react-router-dom';
 
+import QueryString from 'query-string';
 
 const { Header, Content, Footer } = Layout;
 import { ConsoleSqlOutlined, SearchOutlined } from '@ant-design/icons';
@@ -188,30 +189,9 @@ const southIndianMenu = [
 // ]
 const App = () => {
 // Function to parse query parameters from URL
-function getQueryParameterByName(name, url) {
-  if (!url) url = window.location.href;
-  name = name.replace(/[\[\]]/g, "\\$&");
-  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-      results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return '';
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-// Parse response parameters from URL
-const txnId = getQueryParameterByName('txnId');
-const responseCode = getQueryParameterByName('responseCode');
-const approvalRefNo = getQueryParameterByName('ApprovalRefNo');
-const status = getQueryParameterByName('Status');
-const txnRef = getQueryParameterByName('txnRef');
 
 // Handle the response parameters accordingly
-if (status === 'SUCCESS') {
-  // Transaction was successful, handle accordingly
-  //alert('Transaction successful');
-} else {
-  // Transaction failed, handle accordingly
- // alert('Transaction failed');
-}
+
 
 // React.useEffect(()=>{
 //   if(localStorage.getItem('po') == 12){
@@ -243,8 +223,35 @@ React.useEffect(()=>{
  return ()=> {window.removeEventListener('visibilitychange')}
 },[])
 
+
+const [response, setResponse] = React.useState(null);
+const [transactionStatus, setTransactionStatus] = React.useState(null);
+
+React.useEffect(() => {
+  const urlParams = QueryString.parse(window.location.search);
+  if (urlParams.response) {
+    setResponse(urlParams.response);
+    const status = urlParams.txnStatus; // Access transaction status
+    setTransactionStatus(status);
+  }
+}, []);
+
+const handlePaymentClick = () => {
+  const uri = `upi://pay?pa=BHARATPE90727475218@yesbankltd&pn=Verified%20Merchant&am=1&cu=INR`;
+  window.location.href = uri;
+};
   return (
     <>
+
+
+here  <button onClick={handlePaymentClick}>Pay Now</button>
+      {response && (
+        <p>
+          Response: {response}<br />
+          Transaction Status: {transactionStatus === 'SUCCESS' ? 'Payment Successful' : transactionStatus || 'Unknown'}
+        </p>
+      )}
+<br/>
 
 {/* upi://pay?pa=nadeem@npci&pn=nadeem%20chinna&mc=0000&tid=cxnkjcnkjdfdvjndkjfvn&tr=4894
 398cndhcd23&tn=Pay%20to%20mystar%20store&am=10&mam=null&cu=INR&url=https://mystar.co
