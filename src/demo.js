@@ -224,35 +224,12 @@ React.useEffect(()=>{
 },[])
 
 
-const [response, setResponse] = React.useState(null);
-const [transactionStatus, setTransactionStatus] = React.useState(null);
 
-React.useEffect(() => {
-  const urlParams = QueryString.parse(window.location.search);
-  alert(urlParams)
-  // if (urlParams.response) {
-  //   setResponse(urlParams.response);
-  //   const status = urlParams.txnStatus; // Access transaction status
-  //   setTransactionStatus(status);
-  // }
-}, []);
-
-const handlePaymentClick = () => {
-  const uri = `upi://pay?pa=BHARATPE90727475218@yesbankltd&pn=Verified%20Merchant&am=1&cu=INR`;
-  window.location.href = uri;
-};
   return (
     <>
 
 
-here  <button onClick={handlePaymentClick}>Pay Now</button>
-      {response && (
-        <p>
-          Response: {response}<br />
-          Transaction Status: {transactionStatus === 'SUCCESS' ? 'Payment Successful' : transactionStatus || 'Unknown'}
-        </p>
-      )}
-<br/>
+
 
 {/* upi://pay?pa=nadeem@npci&pn=nadeem%20chinna&mc=0000&tid=cxnkjcnkjdfdvjndkjfvn&tr=4894
 398cndhcd23&tn=Pay%20to%20mystar%20store&am=10&mam=null&cu=INR&url=https://mystar.co
