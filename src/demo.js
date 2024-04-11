@@ -229,11 +229,12 @@ const [transactionStatus, setTransactionStatus] = React.useState(null);
 
 React.useEffect(() => {
   const urlParams = QueryString.parse(window.location.search);
-  if (urlParams.response) {
-    setResponse(urlParams.response);
-    const status = urlParams.txnStatus; // Access transaction status
-    setTransactionStatus(status);
-  }
+  alert(urlParams)
+  // if (urlParams.response) {
+  //   setResponse(urlParams.response);
+  //   const status = urlParams.txnStatus; // Access transaction status
+  //   setTransactionStatus(status);
+  // }
 }, []);
 
 const handlePaymentClick = () => {
@@ -280,7 +281,7 @@ ab
 < a href='upi://pay?pa=BHARATPE.9007065432@fbpe&pn=YourBusinessName&am=1.00&cu=INR&mode=01&tid=aRandomTxn12345&tr=aRef12345&tn=PaymentForGoods'>pay 00</a> */}
 
 Merchant
-<a href={`upi://pay?pa=BHARATPE90727475218@yesbankltd&tr=tgert553gt5465gsg644w5g5t56ge6y4te&pn=Verified%20Merchant&cu=INR&tn=PaytoBharatPeMerchant&return_url=${window.location.href}STATUS`}>merchant</a>
+<a href={`upi://pay?pa=BHARATPE90727475218@yesbankltd&tr=tgert553gt5465gsg644w5g5t56ge6y4te&pn=Verified%20Merchant&cu=INR&tn=PaytoBharatPeMerchant&url=${window.location.href}/STATUS`}>merchant</a>
 
 {/* <a href={`upi://pay?pa=7875853859@paytm&pn=anurag&tn=TestUPI&am=1&cu=INR&url=https://dev-fuelsense.iotronsys.com&orgid=000000&mode=00&sign=ad268a425a3fddecda3a23681d2259f075d331d56fcd3b7fc1057113ad8623cb
 `}>akaak</a> */}
