@@ -238,7 +238,7 @@ const handleClick = () => {
       source: 'website'
     },
     parameters: {
-      payee: '7875853859@paytm'
+      payee: 'BHARATPE.90070065432@fbpe'
     }
   }], {
     total: {
