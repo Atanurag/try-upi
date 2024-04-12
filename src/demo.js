@@ -225,10 +225,53 @@ React.useEffect(()=>{
 
 
 
+
+const [paymentRequest, setPaymentRequest] = useState(null);
+
+const handleClick = () => {
+  const paymentRequest = new PaymentRequest([{
+    supportedMethods: ['upi'],
+    data: {
+      merchantName: 'Anurag Tiwari',
+      transactionId: 'kfjhkfjwfajfdjkle4893758943758943jf',
+      description: 'Payment for order #123',
+      source: 'website'
+    },
+    parameters: {
+      payee: '7875853859@paytm'
+    }
+  }], {
+    total: {
+      label: "Donation",
+      amount: {value:'1.00',currency: 'INR'},
+      
+    }
+  });
+  //total: { label: "Donation", amount: { currency: "USD", value: "65.00" } },
+  paymentRequest.show().then(e=>console.log(e));
+};
+
+
   return (
     <>
 
 
+<button onClick={handleClick}>Pay with UPI</button>
+      {/* {paymentRequest && (
+        <div>
+          <p>Please select a UPI app to complete the payment:</p>
+          <ul>
+            {paymentRequest.canMakePayment.map((canMakePayment) => (
+              <li key={canMakePayment.method}>{canMakePayment.method}</li>
+            ))}
+          </ul>
+        </div>
+      )} */}
+
+<br/>
+
+
+<br/>
 
 
 {/* upi://pay?pa=nadeem@npci&pn=nadeem%20chinna&mc=0000&tid=cxnkjcnkjdfdvjndkjfvn&tr=4894
