@@ -230,7 +230,7 @@ const [paymentRequest, setPaymentRequest] = useState(null);
 
 const handleClick = () => {
   const paymentRequest = new PaymentRequest([{
-    supportedMethods: ['upi'],
+    supportedMethods: ['https://paytm.com/pay','https://google.com/pay'],
     data: {
       merchantName: 'Anurag Tiwari',
       transactionId: 'kfjhkfjwfajfdjkle4893758943758943jf',
