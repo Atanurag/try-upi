@@ -9,8 +9,13 @@ import QueryString from 'query-string';
 const { Header, Content, Footer } = Layout;
 import { ConsoleSqlOutlined, SearchOutlined } from '@ant-design/icons';
 import { Divider, Flex, Tag } from 'antd';
-
-
+import io from 'socket.io-client'
+const socket = io.connect('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev')
+socket.on("connect", () => {
+  console.log("Socket connected");
+});
+socket.on('baby',(e)=>console.log(e))
+// fetch('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev/p').then(e=>e.json()).then(e=>console.log(e))
 const d = ()=>{
   return(
     <>
@@ -222,41 +227,11 @@ React.useEffect(()=>{
   window.addEventListener('visibilitychange',handelUserComeback)
  return ()=> {window.removeEventListener('visibilitychange')}
 },[])
-
-
-
-
-const [paymentRequest, setPaymentRequest] = useState(null);
-
-const handleClick = () => {
-  const paymentRequest = new PaymentRequest([{
-    supportedMethods: ['https://paytm.com/pay','https://google.com/pay'],
-    data: {
-      merchantName: 'Anurag Tiwari',
-      transactionId: 'kfjhkfjwfajfdjkle4893758943758943jf',
-      description: 'Payment for order #123',
-      source: 'website'
-    },
-    parameters: {
-      payee: 'BHARATPE.90070065432@fbpe'
-    }
-  }], {
-    total: {
-      label: "Donation",
-      amount: {value:'1.00',currency: 'INR'},
-      
-    }
-  });
-  //total: { label: "Donation", amount: { currency: "USD", value: "65.00" } },
-  paymentRequest.show().then(e=>console.log(e));
-};
-
-
   return (
     <>
 
 
-<button onClick={handleClick}>Pay with UPI</button>
+
       {/* {paymentRequest && (
         <div>
           <p>Please select a UPI app to complete the payment:</p>
