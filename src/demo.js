@@ -10,12 +10,20 @@ const { Header, Content, Footer } = Layout;
 import { ConsoleSqlOutlined, SearchOutlined } from '@ant-design/icons';
 import { Divider, Flex, Tag } from 'antd';
 import io from 'socket.io-client'
-const socket = io.connect('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev')
+//node js  const socket = io.connect('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev')
+// socket.on("connect", () => {
+//   console.log("Socket connected");
+// });
+// socket.on('baby',(e)=>console.log(e))
+//node js fetch('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev/p').then(e=>e.json()).then(e=>console.log(e))
+const socket = io.connect('https://17174cc3-e036-41c5-82a6-1ce90c624cd6-00-2oq5i07bzmsdh.pike.replit.dev:5000')
 socket.on("connect", () => {
   console.log("Socket connected");
 });
-socket.on('baby',(e)=>console.log(e))
-// fetch('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev/p').then(e=>e.json()).then(e=>console.log(e))
+socket.on('payment_response',(e)=>console.log(e))
+
+//fetch('https://17174cc3-e036-41c5-82a6-1ce90c624cd6-00-2oq5i07bzmsdh.pike.replit.dev:5000/js').then(e=>e.json()).then(e=>console.log(e))
+
 const d = ()=>{
   return(
     <>
@@ -217,9 +225,9 @@ const App = () => {
 //   }
 // }, [location]);
 function handelUserComeback(){
-  if(document.visibilityState === 'visible' && sessionStorage.getItem('paymentInitiated')){
+  if(document.visibilityState === 'visible' && localStorage.getItem('paymentInitiated')){
     alert('poppo')
-    sessionStorage.removeItem('paymentInitiated');
+    localStorage.removeItem('paymentInitiated');
   }
 }
 React.useEffect(()=>{
@@ -227,9 +235,24 @@ React.useEffect(()=>{
   window.addEventListener('visibilitychange',handelUserComeback)
  return ()=> {window.removeEventListener('visibilitychange')}
 },[])
+
+const [showContent, setShowContent] = React.useState(false);
+
+React.useEffect(() => {
+  const storedState = localStorage.getItem('showContent');
+  setShowContent(storedState === 'true');
+}, []); // Empty dependency array to run only once
+
+const handlePayClick = () => {
+  setShowContent(true);
+  localStorage.setItem('showContent', true);
+};
+
+
+
   return (
     <>
-
+{showContent && 'poppdfdsfdsf'}
 
 
       {/* {paymentRequest && (
@@ -255,11 +278,11 @@ m/orderid=9298yw89e8973e87389e78923ue892&mode=00&sign=aagshd4542bdhhvdshsbvqfqtt
 vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
 
 
-< a href='upi://pay?pa=7875853859@paytm&pn=Anurag&cu=INR&am=1.00&tn=Payment%20for%20services'>anurag</a>
+< a href='upi://pay?pa=7875853859@paytm&pn=Anurag&cu=INR&am=1.00&tn=Payment%20for%20services' onClick={()=>handlePayClick()}>anurag</a>
 <button onClick={()=>{
 
 //  localStorage.setItem('po',12)
-sessionStorage.setItem('paymentInitiated',true)
+localStorage.setItem('paymentInitiated',true)
 console.log('added')
 
 }
