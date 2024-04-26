@@ -27,6 +27,13 @@ socket.on('payment_response',(e)=>console.log(e))
 const d = ()=>{
   return(
     <>
+
+<div style={{height:"50px",width:'100px',backgroundColor:'#FFD369'}}>#FFD369</div>
+<div style={{height:"50px",width:'100px',backgroundColor:'#FFF6DC'}}>#FFF6DC</div>
+<div style={{height:"50px",width:'100px',backgroundColor:'#A3BB98'}}>#A3BB98</div>
+<div style={{height:"50px",width:'100px',backgroundColor:'#222831'}}>#222831</div>
+
+
     <div style={{height:'400px',overflowY:'scroll'}}>
 
       <h1>Recommended Items</h1>
