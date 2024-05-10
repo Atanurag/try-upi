@@ -207,6 +207,7 @@ const southIndianMenu = [
 //     children:
 //   }
 // ]
+import useRazorpay from "react-razorpay";
 const App = () => {
 // Function to parse query parameters from URL
 
@@ -255,10 +256,101 @@ const handlePayClick = () => {
   localStorage.setItem('showContent', true);
 };
 
+function loadScript(src) {
+  return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+          resolve(true);
+      };
+      script.onerror = () => {
+          resolve(false);
+      };
+      document.body.appendChild(script);
+  });
+}
+async function displayRazorpay() {
+  const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+  );
 
+  if (!res) {
+      alert("Razorpay SDK failed to load. Are you online?");
+      return;
+  }
+
+  // creating a new order
+  const result = await fetch('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev:9000/create-order',{method:'POST'});
+  let js = await result.json()
+
+  if (!js) {
+      alert("Server error. Are you online?");
+      return;
+  }
+
+  // Getting the order details back
+  const { amount, id: order_id, currency } = js;
+
+  const options = {
+      key: "rzp_test_LvLqoT1Xo29wnc", // Enter the Key ID generated from the Dashboard
+      amount: amount.toString(),
+      currency: currency,
+      name: "Soumya Corp.",
+      description: "Test Transaction",
+      order_id: order_id,
+
+      config: {
+        display: {
+          blocks: {
+            utib: { //name for Axis block
+              name: "Pay Upi",
+              instruments: [
+                {
+                 method:'upi'
+                },
+              ]
+            
+          },
+          hide: [
+            {
+            method: "card"
+            }
+          ],
+          sequence: ["block.utib", "block.other"],
+          preferences: {
+            show_default_blocks: false // Should Checkout show its default blocks?
+          }
+        }
+      },},
+
+
+
+     
+      prefill: {
+          name: "Soumya Dey",
+          email: "SoumyaDey@example.com",
+          contact: "9999999999",
+      },
+      notes: {
+          address: "Soumya Dey Corporate Office",
+      },
+      theme: {
+          color: "#61dafb",
+      },
+  };
+
+  const paymentObject = new window.Razorpay(options);
+  paymentObject.open();
+}
 
   return (
     <>
+
+<p onClick={()=>{
+        displayRazorpay()
+      }}>d</p>
+
+
 {showContent && 'poppdfdsfdsf'}
 
 
