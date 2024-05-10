@@ -303,21 +303,26 @@ async function displayRazorpay() {
         display: {
           blocks: {
             banks: {
-              name: 'Most Used Methods',
+              name: 'All payment methods',
               instruments: [
                 {
-                  method: 'wallet',
-                  wallets: ['freecharge']
+                  method: 'upi'
                 },
                 {
-                    method: 'upi'
+                  method: 'card'
                 },
-                ],
+                {
+                    method: 'wallet'
+                },
+                {
+                    method: 'netbanking'
+                }
+              ],
             },
           },
           sequence: ['block.banks'],
           preferences: {
-            show_default_blocks: true,
+            show_default_blocks: false,
           },
         },
       },
