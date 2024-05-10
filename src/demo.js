@@ -302,26 +302,26 @@ async function displayRazorpay() {
       config: {
         display: {
           blocks: {
-            utib: { //name for Axis block
-              name: "Pay Upi",
+            banks: {
+              name: 'Most Used Methods',
               instruments: [
                 {
-                 method:'upi'
+                  method: 'wallet',
+                  wallets: ['freecharge']
                 },
-              ]
-            
+                {
+                    method: 'upi'
+                },
+                ],
+            },
           },
-          hide: [
-            {
-            method: "card"
-            }
-          ],
-          sequence: ["block.utib", "block.other"],
+          sequence: ['block.banks'],
           preferences: {
-            show_default_blocks: false // Should Checkout show its default blocks?
-          }
-        }
-      },},
+            show_default_blocks: true,
+          },
+        },
+      },
+    
 
 
 
