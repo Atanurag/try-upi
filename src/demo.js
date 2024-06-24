@@ -353,7 +353,9 @@ rzp1.open();
 398cndhcd23&tn=Pay%20to%20mystar%20store&am=10&mam=null&cu=INR&url=https://mystar.co
 m/orderid=9298yw89e8973e87389e78923ue892&mode=00&sign=aagshd4542bdhhvdshsbvqfqttsvs
 vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
-< a href='upi://pay?pa=kk.payutest@hdfcbank&pn=demo&tr=a07d45110c80e17cbbe5e8eb7f29ceabb37186e5435c9129dbbc5e72b5eb3734&am=10.00' >TRY THIS</a>
+{/* kk.payutest@hdfcbank
+pi://pay?pa=payu@axisbank&pn=SMSPLUS&tr=8312916361&am=10.17 */}
+< a href='upi://pay?pa=kk.payutest@hdfcbank&pn=demo&tr=403993715531809596&tid=PPPL403993715531809596240624231049&am=10.00&cu=INR&tn=UPIIntent' >TRY THIS</a>
 upi://pay?pa=kk.payutest@hdfcbank&pn=demo&tr=a07d45110c80e17cbbe5e8eb7f29ceabb37186e5435c9129dbbc5e72b5eb3734&am=10.00
 < a href='upi://pay?pa=7875853859@paytm&pn=Anurag&cu=INR&am=1.00&tn=Payment%20for%20services' onClick={()=>handlePayClick()}>anurag</a>
 <button onClick={()=>{
