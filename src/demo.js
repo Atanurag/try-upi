@@ -3,6 +3,7 @@ import './a.css';
 import { Radio, Tabs } from 'antd';
 import { Layout, Input, Button, Row, Col,Switch,Card  } from 'antd';
 import { Route, useLocation,Routes } from 'react-router-dom';
+import Cookies from "js-cookie";
 
 import QueryString from 'query-string';
 
@@ -16,14 +17,16 @@ import io from 'socket.io-client'
 // });
 // socket.on('baby',(e)=>console.log(e))
 //node js fetch('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev/p').then(e=>e.json()).then(e=>console.log(e))
-const socket = io.connect('https://17174cc3-e036-41c5-82a6-1ce90c624cd6-00-2oq5i07bzmsdh.pike.replit.dev:5000')
-socket.on("connect", () => {
-  console.log("Socket connected");
-});
-socket.on('payment_response',(e)=>console.log(e))
+// const socket = io.connect('https://17174cc3-e036-41c5-82a6-1ce90c624cd6-00-2oq5i07bzmsdh.pike.replit.dev:5000')
+// socket.on("connect", () => {
+//   console.log("Socket connected");
+// });
+// socket.on('payment_response',(e)=>console.log(e))
 
+
+fetch('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev/',{ withCredentials: true }).then(e=>e.json()).then(r=>console.log(r,"popo"))
 //fetch('https://17174cc3-e036-41c5-82a6-1ce90c624cd6-00-2oq5i07bzmsdh.pike.replit.dev:5000/js').then(e=>e.json()).then(e=>console.log(e))
-
+console.log(Cookies)
 const d = ()=>{
   return(
     <>
@@ -350,8 +353,8 @@ rzp1.open();
 398cndhcd23&tn=Pay%20to%20mystar%20store&am=10&mam=null&cu=INR&url=https://mystar.co
 m/orderid=9298yw89e8973e87389e78923ue892&mode=00&sign=aagshd4542bdhhvdshsbvqfqttsvs
 vsbsjn&orgid=00000&mid=1234&msid=3432&mtid=1212 */}
-
-
+< a href='upi://pay?pa=kk.payutest@hdfcbank&pn=demo&tr=a07d45110c80e17cbbe5e8eb7f29ceabb37186e5435c9129dbbc5e72b5eb3734&am=10.00' >TRY THIS</a>
+upi://pay?pa=kk.payutest@hdfcbank&pn=demo&tr=a07d45110c80e17cbbe5e8eb7f29ceabb37186e5435c9129dbbc5e72b5eb3734&am=10.00
 < a href='upi://pay?pa=7875853859@paytm&pn=Anurag&cu=INR&am=1.00&tn=Payment%20for%20services' onClick={()=>handlePayClick()}>anurag</a>
 <button onClick={()=>{
 
