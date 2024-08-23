@@ -414,6 +414,7 @@ function onBuyClicked() {
   try {
     request = new PaymentRequest(supportedInstruments, details);
   } catch (e) {
+    alert('Payment Request Error: ' + JSON.stringify(e.message));
     console.log('Payment Request Error: ' + e.message);
     return;
   }
@@ -428,6 +429,7 @@ function onBuyClicked() {
         showPaymentUI(request, result);
       })
       .catch((err) => {
+        alert('Error calling checkCanMakePayment: ' + JSON.stringify(err));
         console.log('Error calling checkCanMakePayment: ' + err);
       });
 }
@@ -468,6 +470,7 @@ function showPaymentUI(request, canMakePayment) {
         //processResponse(instrument); // Handle response from browser.
       })
       .catch(function(err) {
+        alert(JSON.stringify(err));
         console.log(err);
       });
  }
