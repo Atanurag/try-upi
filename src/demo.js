@@ -321,8 +321,173 @@ rzp1.open();
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+//gpay start
+
+
+//can make payment checking for browser supporting 
+/**
+ *
+ * @private
+ * @param {PaymentRequest} request The payment request object.
+ * @return {Promise} a promise containing the result of whether can make payment.
+ */
+const canMakePaymentCache = 'canMakePaymentCache';
+
+async function checkCanMakePayment (request) {
+  // Check canMakePayment cache, use cache result directly if it exists.
+  if (sessionStorage.hasOwnProperty(canMakePaymentCache)) {
+    return Promise.resolve(JSON.parse(sessionStorage[canMakePaymentCache]));
+  }
+  // If canMakePayment() isn't available, default to assume the method is
+  // supported.
+  var canMakePaymentPromise = Promise.resolve(true);
+
+  // Feature detect canMakePayment().
+  if (request.canMakePayment) {
+    canMakePaymentPromise = request.canMakePayment();
+  }
+
+  return canMakePaymentPromise
+      .then((result) => {
+        // Store the result in cache for future usage.
+        sessionStorage[canMakePaymentCache] = result;
+        return result;
+      })
+      .catch((err) => {
+        console.log('Error calling canMakePayment: ' + err);
+      });
+}
+
+
+/** Launches payment request flow when user taps on buy button. */
+function onBuyClicked() {
+  if (!window.PaymentRequest) {
+    console.log('Web payments are not supported in this browser.');
+    return;
+  }
+
+  // Create supported payment method.
+  const supportedInstruments = [
+    {
+      supportedMethods: ['https://tez.google.com/pay'],
+      data: {
+        pa: 'shivaytiwari951@oksbi',
+        pn: 'Anurag Tiwari',
+        tr: '5812ABpwD',  // your custom transaction reference ID
+        url:'https://17174cc3-e036-41c5-82a6-1ce90c624cd6-00-2oq5i07bzmsdh.pike.repslit.dev:5000',
+        mc: '5812', // your merchant category code
+      },
+    }
+  ];
+
+  // Create order detail data.
+  const details = {
+    total: {
+      label: 'Total',
+      amount: {
+        currency: 'INR',
+        value: '1.00', // sample amount
+      },
+    },
+    displayItems: [{
+      label: 'Original Amount',
+      amount: {
+        currency: 'INR',
+        value: '1.00',
+      },
+    }],
+  };
+
+  // Create payment request object.
+  let request = null;
+  try {
+    request = new PaymentRequest(supportedInstruments, details);
+  } catch (e) {
+    console.log('Payment Request Error: ' + e.message);
+    return;
+  }
+  if (!request) {
+    console.log('Web payments are not supported in this browser.');
+    return;
+  }
+
+  var canMakePaymentPromise = checkCanMakePayment(request);
+  canMakePaymentPromise
+      .then((result) => {
+        showPaymentUI(request, result);
+      })
+      .catch((err) => {
+        console.log('Error calling checkCanMakePayment: ' + err);
+      });
+}
+
+
+
+/**
+* Show the payment request UI.
+*
+* @private
+* @param {PaymentRequest} request The payment request object.
+* @param {Promise} canMakePayment The promise for whether can make payment.
+*/
+function showPaymentUI(request, canMakePayment) {
+  if (!canMakePayment) {
+    alert('not ready to pay');
+    //handleNotReadyToPay();
+    return;
+  }
+ 
+  // Set payment timeout.
+  let paymentTimeout = window.setTimeout(function() {
+    window.clearTimeout(paymentTimeout);
+    request.abort()
+        .then(function() {
+          console.log('Payment timed out after 20 minutes.');
+        })
+        .catch(function() {
+          console.log('Unable to abort, user is in the process of paying.');
+        });
+  }, 20 * 60 * 1000); /* 20 minutes */
+ 
+  request.show()
+      .then(function(instrument) {
+ 
+        window.clearTimeout(paymentTimeout);
+        alert(JSON.stringify(instrument));
+        //processResponse(instrument); // Handle response from browser.
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+ }
+// if(checkCanMakePayment()){
+  //paymentRequest()
+// }
+
+
+
+
+
+
   return (
     <>
+
+<p onClick={()=>{
+  onBuyClicked();
+}}>onBuyClicked</p>
+
+
 
 <p onClick={()=>{
         displayRazorpay()
