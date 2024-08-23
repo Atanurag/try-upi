@@ -456,9 +456,11 @@ function showPaymentUI(request, canMakePayment) {
     request.abort()
         .then(function() {
           console.log('Payment timed out after 20 minutes.');
+          alert('Payment timed out after 20 minutes.');
         })
         .catch(function() {
           console.log('Unable to abort, user is in the process of paying.');
+         alert('Unable to abort, user is in the process of paying.');
         });
   }, 20 * 60 * 1000); /* 20 minutes */
  
@@ -466,11 +468,11 @@ function showPaymentUI(request, canMakePayment) {
       .then(function(instrument) {
  
         window.clearTimeout(paymentTimeout);
-        alert(JSON.stringify(instrument));
+        alert(JSON.stringify(instrument)+'error showPayment ui show() then');
         //processResponse(instrument); // Handle response from browser.
       })
       .catch(function(err) {
-        alert(JSON.stringify(err));
+        alert(JSON.stringify(err)+'error showPayment ui show() catch');
         console.log(err);
       });
  }
