@@ -471,8 +471,8 @@ const App = () => {
       .then(function (instrument) {
 
         window.clearTimeout(paymentTimeout);
-        const status = instrument.Status;
-        const txnRef = instrument.txnRef;
+        const status = instrument.details.Status;
+        const txnRef = instrument.details.txnRef;
 
         setPaymentState({ status, txnRef });
 
