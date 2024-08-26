@@ -472,7 +472,9 @@ function showPaymentUI(request, canMakePayment) {
         //processResponse(instrument); // Handle response from browser.
       })
       .catch(function(err) {
-        alert(JSON.stringify(err)+'error showPayment ui show() catch');
+        //alert(JSON.stringify(err)+'error showPayment ui show() catch');
+        alert({p:9}.p +'error showPayment ui show() catch');
+
         console.log(err);
       });
  }
@@ -481,6 +483,26 @@ function showPaymentUI(request, canMakePayment) {
 // }
 
 
+// alert(JSON.stringify(instrument)+'error showPayment ui show() then');
+
+// {"requestId":"ac121519-90a9-42fa-87a5-9f2d799bd792"
+// ,"methodName":"https://tez.google.com/pay"
+// ,"details":{"tezResponse":"{\"Status":\"SUCCESS"
+// Jamount":"1.00\",\"txnRef\":\"5812ABpuDel
+// J'toVpal:7875853859@pthdfc\",\"txnId\":
+// \'AXIcb3aef9b3391467ab66673ff942ac0a3\"
+// responseCode\":\"0\"}","txnl
+// d":"AXIcb3aef9b3391467ab66673ff942ac0a3","responseC
+// ode":"0","Approval RefNo":"","
+// Status":"SUCCESS","txnRef":"5812ABpuDe", "TrtxnRef":"581
+// 2ABpuDe","signature":"304
+// 5022100fbfd57e92daa017c42afb262a63796357777335cc
+// 29da2e925a2adad96a081c702200711e
+// 61c32092f0f2436baab0150706f988b6ab1575fee06081cal
+// f6d2ffdffdd","signatureKeyld":"P
+// AYMENT RESPONSE V2"},"shippingAddress":null,"shipping
+// Option":null,"payerName":nu
+// II," payerEmail":null,"payerPhone":null}
 
 
 
