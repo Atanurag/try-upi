@@ -472,8 +472,8 @@ function showPaymentUI(request, canMakePayment) {
         //processResponse(instrument); // Handle response from browser.
       })
       .catch(function(err) {
-        //alert(JSON.stringify(err)+'error showPayment ui show() catch');
-        alert({p:9}.p +'error showPayment ui show() catch');
+        alert(JSON.stringify(instrument)+'error showPayment ui show() catch');
+       // alert({p:9}.p +'error showPayment ui show() catch');
 
         console.log(err);
       });
