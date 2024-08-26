@@ -468,12 +468,17 @@ function showPaymentUI(request, canMakePayment) {
       .then(function(instrument) {
  
         window.clearTimeout(paymentTimeout);
-        alert(JSON.stringify(instrument)+'error showPayment ui show() then');
+        const status = instrument.details.tezResponse.Status;
+        const txnRef = instrument.details.tezResponse.txnRef;
+    
+        setPaymentState({ status, txnRef });
+    
+        //alert(JSON.stringify(instrument)+'error showPayment ui show() then');
         //processResponse(instrument); // Handle response from browser.
       })
       .catch(function(err) {
-        alert(JSON.stringify(instrument)+'error showPayment ui show() catch');
-       // alert({p:9}.p +'error showPayment ui show() catch');
+        //alert(JSON.stringify(instrument)+'error showPayment ui show() catch');
+        alert({p:9}.p +'error showPayment ui show() catch');
 
         console.log(err);
       });
@@ -509,7 +514,10 @@ function showPaymentUI(request, canMakePayment) {
 
   return (
     <>
-
+<div>
+  <p>Status: {paymentState.status}</p>
+  <p>TxnRef: {paymentState.txnRef}</p>
+</div>
 <p onClick={()=>{
   onBuyClicked();
 }}>onBuyClicked</p>
