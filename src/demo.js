@@ -24,9 +24,9 @@ import io from 'socket.io-client'
 // socket.on('payment_response',(e)=>console.log(e))
 
 
-fetch('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev/', { withCredentials: true }).then(e => e.json()).then(r => console.log(r, "popo"))
-//fetch('https://17174cc3-e036-41c5-82a6-1ce90c624cd6-00-2oq5i07bzmsdh.pike.replit.dev:5000/js').then(e=>e.json()).then(e=>console.log(e))
-console.log(Cookies)
+// fetch('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev/', { withCredentials: true }).then(e => e.json()).then(r => console.log(r, "popo"))
+// //fetch('https://17174cc3-e036-41c5-82a6-1ce90c624cd6-00-2oq5i07bzmsdh.pike.replit.dev:5000/js').then(e=>e.json()).then(e=>console.log(e))
+// console.log(Cookies)
 const d = () => {
   return (
     <>
@@ -498,24 +498,24 @@ function processResponse(instrument) {
   var instrumentString = instrumentToJsonString(instrument);
   console.log(instrumentString);
  
-  fetch('https://c0ccd437-87bb-4fd4-b585-6ef2b6165e6e-00-xn5f3f0kqnav.sisko.replit.dev/',{
-    method: 'POST',
-    headers: new Headers({'Content-Type': 'application/json'}),
-    body: instrumentString,
-  })
-      .then(function(buyResult) {
-        if (buyResult.ok) {
-          return buyResult.json();
-        }
-        console.log('Error sending instrument to server.');
-      })
-      .then(function(buyResultJson) {
-        completePayment(instrument, buyResultJson.status, buyResultJson.message);
+  // fetch('https://c0ccd437-87bb-4fd4-b585-6ef2b6165e6e-00-xn5f3f0kqnav.sisko.replit.dev/',{
+  //   method: 'POST',
+  //   headers: new Headers({'Content-Type': 'application/json'}),
+  //   body: instrumentString,
+  // })
+  //     .then(function(buyResult) {
+  //       if (buyResult.ok) {
+  //         return buyResult.json();
+  //       }
+  //       console.log('Error sending instrument to server.');
+  //     })
+  //     .then(function(buyResultJson) {
+  //       completePayment(instrument, buyResultJson.status, buyResultJson.message);
  
-      })
-      .catch(function(err) {
-        console.log('Unable to process payment. ' + err);
-      });
+  //     })
+  //     .catch(function(err) {
+  //       console.log('Unable to process payment. ' + err);
+  //     });
  }
  
  /**
