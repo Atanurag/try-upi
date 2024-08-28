@@ -471,13 +471,13 @@ const App = () => {
       .then(function (instrument) {
 
         window.clearTimeout(paymentTimeout);
-        const status = instrument.details.Status;
-        const txnRef = instrument.details.txnRef;
+        // const status = instrument.details.Status;
+        // const txnRef = instrument.details.txnRef;
 
-        setPaymentState({ status, txnRef });
+        // setPaymentState({ status, txnRef });
 
         //alert(JSON.stringify(instrument)+'error showPayment ui show() then');
-        //processResponse(instrument); // Handle response from browser.
+        processResponse(instrument); // Handle response from browser.
       })
       .catch(function (err) {
         //alert(JSON.stringify(instrument)+'error showPayment ui show() catch');
@@ -486,6 +486,82 @@ const App = () => {
         console.log(err);
       });
   }
+
+
+/**
+* Process the response from browser.
+*
+* @private
+* @param {PaymentResponse} instrument The payment instrument that was authed.
+*/
+function processResponse(instrument) {
+  var instrumentString = instrumentToJsonString(instrument);
+  console.log(instrumentString);
+ 
+  fetch('https://c0ccd437-87bb-4fd4-b585-6ef2b6165e6e-00-xn5f3f0kqnav.sisko.replit.dev/',{
+    method: 'POST',
+    headers: new Headers({'Content-Type': 'application/json'}),
+    body: instrumentString,
+  })
+      .then(function(buyResult) {
+        if (buyResult.ok) {
+          return buyResult.json();
+        }
+        console.log('Error sending instrument to server.');
+      })
+      .then(function(buyResultJson) {
+        completePayment(instrument, buyResultJson.status, buyResultJson.message);
+ 
+      })
+      .catch(function(err) {
+        console.log('Unable to process payment. ' + err);
+      });
+ }
+ 
+ /**
+ * Notify browser that the instrument authorization has completed.
+ *
+ * @private
+ * @param {PaymentResponse} instrument The payment instrument that was authed.
+ * @param {string} result Whether the auth was successful. Should be either
+ * 'success' or 'fail'.
+ * @param {string} msg The message to log in console.
+ */
+ function completePayment(instrument, result, msg) {
+  instrument.complete(result)
+      .then(function() {
+        console.log('Payment succeeds.');
+        console.log(msg);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+ }
+ 
+
+
+ /** Converts the payment response into a JSON string.
+ *
+ * @private
+ * @param {PaymentResponse} paymentResponse The payment response to convert.
+ * @return {string} The string representation of the payment response.
+ */
+function instrumentToJsonString(paymentResponse) {
+  // PaymentResponse is an interface, JSON.stringify works only on dictionaries.
+  var paymentResponseDictionary = {
+    methodName:paymentResponse.methodName,
+    details:paymentResponse.details,
+    // shippingAddress: addressToJsonString(paymentResponse.shippingAddress),
+    shippingOption: paymentResponse.shippingOption,
+    payerName: paymentResponse.payerName,
+    payerPhone: paymentResponse.payerPhone,
+    payerEmail: paymentResponse.payerEmail,
+  };
+  return JSON.stringify(paymentResponseDictionary, undefined, 2);
+}
+
+
+
   // if(checkCanMakePayment()){
   //paymentRequest()
   // }
