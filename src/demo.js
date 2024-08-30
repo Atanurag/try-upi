@@ -602,7 +602,13 @@ function instrumentToJsonString(paymentResponse) {
     <>
 <Toaster />
     <button onClick={()=>{
-      toast('Here is your toast.');
+     toast.error('Successfully created!',{
+      style: {
+       color:'red',
+      },
+      duration: 2000,
+  position: 'top-center',
+     });
     }}>toast</button>
       <div>
         <p>Status: {paymentState?.status}</p>
