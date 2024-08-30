@@ -11,6 +11,8 @@ const { Header, Content, Footer } = Layout;
 import { ConsoleSqlOutlined, SearchOutlined } from '@ant-design/icons';
 import { Divider, Flex, Tag } from 'antd';
 import io from 'socket.io-client'
+import toast, { Toaster } from 'react-hot-toast';
+
 //node js  const socket = io.connect('https://8b531e0e-eb1d-4615-a175-1d03aed63513-00-14eudonfdu6o9.pike.replit.dev')
 // socket.on("connect", () => {
 //   console.log("Socket connected");
@@ -598,6 +600,10 @@ function instrumentToJsonString(paymentResponse) {
 
   return (
     <>
+
+    <button onClick={()=>{
+      toast('Here is your toast.');
+    }}>toast</button>
       <div>
         <p>Status: {paymentState?.status}</p>
         <p>TxnRef: {paymentState?.txnRef}</p>
