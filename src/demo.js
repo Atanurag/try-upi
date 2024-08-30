@@ -600,7 +600,7 @@ function instrumentToJsonString(paymentResponse) {
 
   return (
     <>
-
+<Toaster />
     <button onClick={()=>{
       toast('Here is your toast.');
     }}>toast</button>
