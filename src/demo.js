@@ -382,8 +382,13 @@ const App = () => {
 
     // Create supported payment method.
     const supportedInstruments = [
-      {
-        supportedMethods: ['https://tez.google.com/pay'],
+//       Google Pay and Phonepe use this.
+
+// GPAY - tez:- tez://upi/pay?pa=9000000009@upi&pn=User1&tn=Test UPI&am=20&cu=INR&mc=1234&tr=01234
+
+// PHONEPAY - phonepe:- phonepe://pay?pa=9000000009@upi&pn=User1&tn=Test UPI&am=20&cu=INR&mc=1234&tr=01234
+//       {paytmmp://pay?pa=9000000009@upi&pn=User1&tn=Test UPI&am=20&cu=INR&mc=1234&tr=01234
+       { supportedMethods: ['https://tez.google.com/pay','https://paytmp.com/pay'],
         data: {
           pa: '7875853859@pthdfc',
           pn: 'Anurag Tiwari-1',
